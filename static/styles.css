@@ -1,3 +1,162 @@
-.test {
-    border: 2px solid red;
+/* BASICS & TITLE */
+
+body {
+    margin: 0;
+    padding: 0px 2%;
 }
+
+.title-ctn {
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.col {
+    border: 2px solid grey;
+    height: 300px;
+}
+
+.row {
+    height: 300px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+
+h6 {
+    font-weight: bold;
+}
+
+
+
+
+/* ACCELERATION */
+#xGauge {
+    width: 80%;
+}
+
+#yGauge {
+    width: 80%;
+}
+
+#zGauge {
+    width: 80%;
+}
+
+/* how to reduce place of model... not only the div... */
+.flex-row {
+    justify-content: space-around;
+}
+
+
+/* HUMIDITY */
+
+/* weird thing with margin left... */
+.humidity-ctn {
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
+    margin-left: 30%;
+}
+
+.humidity-img-ctn {
+    width: 25%;
+}
+
+
+.humidity-ctn img {
+    height: 100%;
+    width: 100%;
+}
+
+/* TEMPERATURE */
+
+.temperature-ctn {
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
+    margin-left: 30%;
+}
+
+.temperature-ctn img {
+    height: 100%;
+    width: 100%;
+}
+
+.temperature-img-ctn {
+    width: 15%;
+}
+
+.highlight {
+    border: 1px solid green;
+}
+
+
+/* LIGHT COLORS - SWITCHER */
+
+
+.light-ctn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.first-row {
+    margin-top: 5%;
+}
+
+.col-light {
+    display: flex;
+    flex-direction: column;
+}
+
+.switch label .lever {
+    background-color: rgb(185, 185, 185);
+}
+
+.switch label input[type=checkbox]:checked + .lever {
+    background-color: rgb(185, 185, 185);
+}
+
+.sw-green  label .lever:after {
+    background-color: rgb(0, 109, 15);
+}
+
+.sw-green  label input[type=checkbox]:checked + .lever:after {
+    background-color: #00f815;
+}
+
+.sw-red  label .lever:after {
+    background-color: rgb(151, 5, 5);
+}
+
+.sw-red  label input[type=checkbox]:checked + .lever:after {
+    background-color: #ff0000;
+}
+
+.sw-yellow  label .lever:after {
+    background-color: rgb(199, 212, 80);
+}
+
+.sw-yellow  label input[type=checkbox]:checked + .lever:after {
+    background-color: #eeff00;
+}
+
+  
+ 

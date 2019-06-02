@@ -7,17 +7,206 @@
     <title>UALR - iot</title>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="../static/styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
 
 
 </head>
 <body>
 
-    <h1>Test</h1>
 
-    <div class="test">YOYO</div>
+    <div class="title-ctn">
+        <h1><b>UALR - Cyber IOT</b></h1>
+        <h4>Google Cloud Platform</h4> <i>Current device : </i>
+    </div>
 
+
+    <div class="main-ctn">
+
+        <!-- ACCELLERATION -->
+        <div class="row">
+            <div class="col s12 brown lighten-5">
+                <h6>Acceleration</h6>
+                <div class="flex-row">
+                    <div>
+                        <p>X Axis</p>
+                        <canvas id="xGauge"></canvas>
+                        <p>{{accData.xacc}}</p>
+                    </div>
+                    <div>
+                        <p>Y Axis</p>
+                        <canvas id="yGauge"></canvas>
+                        <p>{{accData.yacc}}</p>
+                    </div>
+                    <div>
+                        <p>Z Axis</p>
+                        <canvas id="zGauge"></canvas>
+                        <p>{{accData.zacc}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ROW - HUMID & TEMP -->
+        <div class="row">
+            <!-- HUMIDITY -->
+            <div class="col s6 brown lighten-5">
+                <h6>Humidity</h6>
+
+                <div class="humidity-ctn">
+
+                    <div class="humidity-img-ctn">
+                        <img src="../static/src/water_drop.png" alt="water_drop">
+                    </div>
+
+                    <div class="valign-wrapper">
+                        <span>72 %</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TEMPERATURE -->
+            <div class="col s6 brown lighten-5">
+                <h6>Temperature</h6>
+
+                <div class="temperature-ctn">
+
+                    <div class="temperature-img-ctn">
+                        <img src="../static/src/yoyo.png" alt="thermometer">
+                    </div>
+    
+                    <div class="valign-wrapper flex-column">
+                        <div>
+                            25 °C
+                        </div>
+                        <div>
+                            -------
+                        </div>
+                        <div>
+                            77 °F
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- MAP & LIGHT -->
+        <div class="row">
+            <!-- MAP -->
+            <div class="col s6 brown lighten-5">
+                <h6>Map</h6>
+            </div>
+
+            <!-- LIGHT -->
+            <div class="col s6 brown lighten-5">
+                <h6>Light</h6>
+
+
+                    <div class="light-ctn first-row">
+                        <div>
+                            <p>Green light</p>
+                        </div>
+                        <div class="switch sw-green">
+                            <label>
+                                Off
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                                On
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="light-ctn">
+                        <p>Red light</p>
+                        <div class="switch sw-red">
+                            <label>
+                                Off
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                                On
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="light-ctn">
+                        <p>Yellow light</p>
+                        <div class="switch sw-yellow">
+                            <label>
+                                Off
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                                On
+                            </label>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="../static/script.js"></script>
+    <script src="../static/gauge.min.js"></script>
+
+    
+    <script>
+
+        var accData = JSON.parse('{{ accData | tojson | safe}}');
+
+        var opts = {
+            angle: 0.1, // The span of the gauge arc
+            lineWidth: 0.1, // The line thickness
+            radiusScale: 1, // Relative radius
+            pointer: {
+            length: 0.4, // // Relative to gauge radius
+            strokeWidth: 0.03, // The thickness
+            color: '#000000' // Fill color
+            },
+            limitMax: false,     // If false, max value increases automatically if value > maxValue
+            limitMin: false,     // If true, the min value of the gauge will be fixed
+            colorStart: '#6FADCF',   // Colors
+            colorStop: '#8FC0DA',    // just experiment with them
+            strokeColor: '#E0E0E0',  // to see which ones work best for you
+            generateGradient: true,
+            highDpiSupport: true,     // High resolution support
+        }
+        
+        var targetXGauge = document.getElementById('xGauge'); // your canvas element
+        var accXGauge = new Gauge(targetXGauge).setOptions(opts); // create sexy gauge!
+        accXGauge.maxValue = 3000; // set max gauge value
+        accXGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        accXGauge.animationSpeed = 50; // set animation speed (32 is default value)
+        accXGauge.set(accData.xacc); // set actual value
+
+
+        var targetYGauge = document.getElementById('yGauge'); // your canvas element
+        var accYGauge = new Gauge(targetYGauge).setOptions(opts); // create sexy gauge!
+        accYGauge.maxValue = 3000; // set max gauge value
+        accYGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        accYGauge.animationSpeed = 50; // set animation speed (32 is default value)
+        accYGauge.set(accData.yacc); // set actual value
+
+        var targetZGauge = document.getElementById('zGauge'); // your canvas element
+        var accZGauge = new Gauge(targetZGauge).setOptions(opts); // create sexy gauge!
+        accZGauge.maxValue = 3000; // set max gauge value
+        accZGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        accZGauge.animationSpeed = 50; // set animation speed (32 is default value)
+        accZGauge.set(accData.zacc); // set actual value
+
+    </script>
 
 </body>
 </html>
