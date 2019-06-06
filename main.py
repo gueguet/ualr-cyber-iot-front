@@ -24,10 +24,16 @@ db = firebase.database()
 xacc_data = db.child("telemetry_data").child("xacc").get().val()
 yacc_data = db.child("telemetry_data").child("yacc").get().val()
 zacc_data = db.child("telemetry_data").child("zacc").get().val()
+humidity_data =  db.child("telemetry_data").child("humidity").get().val()
+temperature_data =  db.child("telemetry_data").child("temperature").get().val()
+
 
 print(xacc_data)
 print(yacc_data)
 print(zacc_data)
+print(humidity_data)
+print(temperature_data)
+
 
 # def stream_handler(message):
 #     print(message["event"]) # put
@@ -51,13 +57,15 @@ print(zacc_data)
 @app.route('/')
 def index():
 
-    accData = {
+    telemetryData = {
                 'xacc': xacc_data,
                 'yacc': yacc_data,
                 'zacc': zacc_data,
+                'humidity': humidity_data,
+                'temperature': temperature_data,
             }
 
-    return render_template('index.html', accData=accData)
+    return render_template('index.html', telemetryData=telemetryData)
 
 
 @app.route('/update')
@@ -66,19 +74,15 @@ def update():
     xacc_data = db.child("telemetry_data").child("xacc").get().val()
     yacc_data = db.child("telemetry_data").child("yacc").get().val()
     zacc_data = db.child("telemetry_data").child("zacc").get().val()
-
-    newAccData = {
-                'xacc': xacc_data,
-                'yacc': yacc_data,
-                'zacc': zacc_data,
-            }
-
-    print(newAccData)
+    humidity_data =  db.child("telemetry_data").child("humidity").get().val()
+    temperature_data =  db.child("telemetry_data").child("temperature").get().val()
 
     return jsonify({
             'xvalue' : xacc_data,
             'yvalue' : yacc_data,
-            'zvalue' : zacc_data
+            'zvalue' : zacc_data,
+            'humidity' : humidity_data,
+            'temperature' : temperature_data,
         })
 
 

@@ -39,17 +39,17 @@
                     <div>
                         <p>X Axis</p>
                         <canvas id="xGauge"></canvas>
-                        <p id="value_x">{{accData.xacc}}</p>
+                        <p id="value_x">{{telemetryData.xacc}}</p>
                     </div>
                     <div>
                         <p>Y Axis</p>
                         <canvas id="yGauge"></canvas>
-                        <p id="value_y">{{accData.yacc}}</p>
+                        <p id="value_y">{{telemetryData.yacc}}</p>
                     </div>
                     <div>
                         <p>Z Axis</p>
                         <canvas id="zGauge"></canvas>
-                        <p id="value_z">{{accData.zacc}}</p>
+                        <p id="value_z">{{telemetryData.zacc}}</p>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="valign-wrapper">
-                        <span>72 %</span>
+                        <span id="humidity_value">72 %</span>
                     </div>
 
                 </div>
@@ -87,13 +87,13 @@
                     </div>
     
                     <div class="valign-wrapper flex-column">
-                        <div>
+                        <div id="degree_value_cel">
                             25 °C
                         </div>
                         <div>
                             -------
                         </div>
-                        <div>
+                        <div id="degree_value_fahr">
                             77 °F
                         </div>
                     </div>
@@ -168,7 +168,7 @@
     
     <script>
 
-        var accData = JSON.parse('{{ accData | tojson | safe}}');
+        var telemetryData = JSON.parse('{{ telemetryData | tojson | safe}}');
 
         var opts = {
             angle: 0.1, // The span of the gauge arc
@@ -193,7 +193,7 @@
         accXGauge.maxValue = 3000; // set max gauge value
         accXGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
         accXGauge.animationSpeed = 50; // set animation speed (32 is default value)
-        accXGauge.set(accData.xacc); // set actual value
+        accXGauge.set(telemetryData.xacc); // set actual value
 
 
         var targetYGauge = document.getElementById('yGauge'); // your canvas element
@@ -201,14 +201,14 @@
         accYGauge.maxValue = 3000; // set max gauge value
         accYGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
         accYGauge.animationSpeed = 50; // set animation speed (32 is default value)
-        accYGauge.set(accData.yacc); // set actual value
+        accYGauge.set(telemetryData.yacc); // set actual value
 
         var targetZGauge = document.getElementById('zGauge'); // your canvas element
         var accZGauge = new Gauge(targetZGauge).setOptions(opts); // create sexy gauge!
         accZGauge.maxValue = 3000; // set max gauge value
         accZGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
         accZGauge.animationSpeed = 50; // set animation speed (32 is default value)
-        accZGauge.set(accData.zacc); // set actual value
+        accZGauge.set(telemetryData.zacc); // set actual value
 
     </script>
 

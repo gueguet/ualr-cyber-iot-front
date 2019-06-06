@@ -1,31 +1,35 @@
 // GAUGE 
 
 
+
+
 $(document).ready(function(){
 
-  $('.update').on('click', function() {
 
-    setInterval(function(){ 
-      
-      req = $.ajax({
-        url : '/update'
-      });
 
-      req.done(function(data) {
-
-      console.log(data);
-
-        $('#value_x').html(data.xvalue);
-        $('#value_y').html(data.yvalue);
-        $('#value_z').html(data.zvalue);
+  setInterval(function(){ 
     
-      })
-    
-    
-    }, 1000);
+    req = $.ajax({
+      url : '/update'
+    });
+
+    req.done(function(data) {
+
+    console.log(data);
+
+      $('#value_x').html(data.xvalue);
+      $('#value_y').html(data.yvalue);
+      $('#value_z').html(data.zvalue);
+      $('#humidity_value').html(data.humidity);
+      $('#degree_value_fahr').html(data.temperature);
+  
+    })
+  
+  
+  }, 1000);
 
 
-  });
+});
 
   // alert("fiwejfejwfjweio");
 
@@ -78,7 +82,7 @@ $(document).ready(function(){
   // accZGauge.animationSpeed = 50; // set animation speed (32 is default value)
   // accZGauge.set(1000); // set actual value
 
-});
+
 
 
 
