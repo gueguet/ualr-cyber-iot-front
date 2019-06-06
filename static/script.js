@@ -3,6 +3,30 @@
 
 $(document).ready(function(){
 
+  $('.update').on('click', function() {
+
+    setInterval(function(){ 
+      
+      req = $.ajax({
+        url : '/update'
+      });
+
+      req.done(function(data) {
+
+      console.log(data);
+
+        $('#value_x').html(data.xvalue);
+        $('#value_y').html(data.yvalue);
+        $('#value_z').html(data.zvalue);
+    
+      })
+    
+    
+    }, 1000);
+
+
+  });
+
   // alert("fiwejfejwfjweio");
 
   // console.log("test");

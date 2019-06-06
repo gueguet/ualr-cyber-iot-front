@@ -24,6 +24,10 @@
         <h4>Google Cloud Platform</h4> <i>Current device : </i>
     </div>
 
+    <div>
+        <button class="update">Update</button>
+
+    </div> 
 
     <div class="main-ctn">
 
@@ -35,17 +39,17 @@
                     <div>
                         <p>X Axis</p>
                         <canvas id="xGauge"></canvas>
-                        <p>{{accData.xacc}}</p>
+                        <p id="value_x">{{accData.xacc}}</p>
                     </div>
                     <div>
                         <p>Y Axis</p>
                         <canvas id="yGauge"></canvas>
-                        <p>{{accData.yacc}}</p>
+                        <p id="value_y">{{accData.yacc}}</p>
                     </div>
                     <div>
                         <p>Z Axis</p>
                         <canvas id="zGauge"></canvas>
-                        <p>{{accData.zacc}}</p>
+                        <p id="value_z">{{accData.zacc}}</p>
                     </div>
                 </div>
             </div>
