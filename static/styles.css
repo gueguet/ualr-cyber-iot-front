@@ -69,6 +69,7 @@ h6 {
     flex-direction: row;
     font-size: 40px;
     margin-left: 30%;
+    margin-top: 5%;
 }
 
 .humidity-img-ctn {
@@ -158,5 +159,18 @@ h6 {
     background-color: #eeff00;
 }
 
-  
- 
+
+/* PRESSURE */
+
+.pressure-ctn {
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#center-pressure {
+  margin-top: 10%;
+}

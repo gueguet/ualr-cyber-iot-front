@@ -24,10 +24,6 @@
         <!-- <h4>Google Cloud Platform</h4> <i>Current device : </i> -->
     </div>
 
-    <div>
-        <button class="update">Update</button>
-
-    </div>
 
     <div class="main-ctn">
 
@@ -69,7 +65,7 @@
                     </div>
 
                     <div class="valign-wrapper">
-                        <span id="humidity_value">72 %</span>
+                        <span id="humidity_value">72 </span> %
                     </div>
 
                 </div>
@@ -87,14 +83,14 @@
                     </div>
 
                     <div class="valign-wrapper flex-column">
-                        <div id="degree_value_cel">
-                            25 °C
+                        <div>
+                          <span id="degree_value_cel"></span> °C
                         </div>
                         <div>
                             -------
                         </div>
-                        <div id="degree_value_fahr">
-                            77 °F
+                        <div>
+                          <span id="degree_value_fahr"></span> °F
                         </div>
                     </div>
 
@@ -104,11 +100,22 @@
         </div>
 
 
-        <!-- MAP & LIGHT -->
+
+        <!-- PRESSURE & LIGHT -->
         <div class="row">
-            <!-- MAP -->
+            <!-- PRESSURE -->
             <div class="col s6 brown lighten-5">
-                <h6>Map</h6>
+                <h6>Pressure</h6>
+
+
+                <div class="pressure-ctn valign-wrapper">
+
+                    <div id="center-pressure">
+                        <span id="pressure_value">72</span>Pa
+                    </div>
+
+                </div>
+
             </div>
 
             <!-- LIGHT -->
@@ -190,23 +197,23 @@
 
         var targetXGauge = document.getElementById('xGauge'); // your canvas element
         var accXGauge = new Gauge(targetXGauge).setOptions(opts); // create sexy gauge!
-        accXGauge.maxValue = 3000; // set max gauge value
-        accXGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        accXGauge.maxValue = 15; // set max gauge value
+        accXGauge.setMinValue(-15);  // Prefer setter over gauge.minValue = 0
         accXGauge.animationSpeed = 50; // set animation speed (32 is default value)
         accXGauge.set(telemetryData.xacc); // set actual value
 
 
         var targetYGauge = document.getElementById('yGauge'); // your canvas element
         var accYGauge = new Gauge(targetYGauge).setOptions(opts); // create sexy gauge!
-        accYGauge.maxValue = 3000; // set max gauge value
-        accYGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        accYGauge.maxValue = 15; // set max gauge value
+        accYGauge.setMinValue(-15);  // Prefer setter over gauge.minValue = 0
         accYGauge.animationSpeed = 50; // set animation speed (32 is default value)
         accYGauge.set(telemetryData.yacc); // set actual value
 
         var targetZGauge = document.getElementById('zGauge'); // your canvas element
         var accZGauge = new Gauge(targetZGauge).setOptions(opts); // create sexy gauge!
-        accZGauge.maxValue = 3000; // set max gauge value
-        accZGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        accZGauge.maxValue = 15; // set max gauge value
+        accZGauge.setMinValue(-15);  // Prefer setter over gauge.minValue = 0
         accZGauge.animationSpeed = 50; // set animation speed (32 is default value)
         accZGauge.set(telemetryData.zacc); // set actual value
 
