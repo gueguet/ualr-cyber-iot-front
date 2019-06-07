@@ -76,6 +76,12 @@ def update():
     zacc_data = db.child("telemetry_data").child("zacc").get().val()
     humidity_data =  db.child("telemetry_data").child("humidity").get().val()
     temperature_data =  db.child("telemetry_data").child("temperature").get().val()
+    pressure_data =  db.child("telemetry_data").child("pressure").get().val()
+
+    print(xacc_data)
+    print(yacc_data)
+    print(zacc_data)
+
 
     return jsonify({
             'xvalue' : xacc_data,
@@ -83,6 +89,7 @@ def update():
             'zvalue' : zacc_data,
             'humidity' : humidity_data,
             'temperature' : temperature_data,
+            'pressure' : pressure_data
         })
 
 

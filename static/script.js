@@ -1,4 +1,4 @@
-// GAUGE 
+// GAUGE
 
 
 
@@ -7,25 +7,25 @@ $(document).ready(function(){
 
 
 
-  setInterval(function(){ 
-    
+  setInterval(function(){
+
     req = $.ajax({
       url : '/update'
     });
 
     req.done(function(data) {
 
-    console.log(data);
+      console.log(data);
 
       $('#value_x').html(data.xvalue);
       $('#value_y').html(data.yvalue);
       $('#value_z').html(data.zvalue);
       $('#humidity_value').html(data.humidity);
       $('#degree_value_fahr').html(data.temperature);
-  
+
     })
-  
-  
+
+
   }, 1000);
 
 
@@ -41,7 +41,7 @@ $(document).ready(function(){
 
   // var accData = JSON.parse('{{ accData | tojson | safe}}');
   // alert(accData.yacc);
-  
+
   // var opts = {
   //   angle: 0.1, // The span of the gauge arc
   //   lineWidth: 0.1, // The line thickness
@@ -59,7 +59,7 @@ $(document).ready(function(){
   //   generateGradient: true,
   //   highDpiSupport: true,     // High resolution support
   // }
-  
+
   // var targetXGauge = document.getElementById('xGauge'); // your canvas element
   // var accXGauge = new Gauge(targetXGauge).setOptions(opts); // create sexy gauge!
   // accXGauge.maxValue = 3000; // set max gauge value
@@ -81,10 +81,3 @@ $(document).ready(function(){
   // accZGauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
   // accZGauge.animationSpeed = 50; // set animation speed (32 is default value)
   // accZGauge.set(1000); // set actual value
-
-
-
-
-
-
-

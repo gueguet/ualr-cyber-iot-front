@@ -21,13 +21,13 @@
 
     <div class="title-ctn">
         <h1><b>UALR - Cyber IOT</b></h1>
-        <h4>Google Cloud Platform</h4> <i>Current device : </i>
+        <!-- <h4>Google Cloud Platform</h4> <i>Current device : </i> -->
     </div>
 
     <div>
         <button class="update">Update</button>
 
-    </div> 
+    </div>
 
     <div class="main-ctn">
 
@@ -85,7 +85,7 @@
                     <div class="temperature-img-ctn">
                         <img src="../static/src/yoyo.png" alt="thermometer">
                     </div>
-    
+
                     <div class="valign-wrapper flex-column">
                         <div id="degree_value_cel">
                             25 °C
@@ -165,7 +165,7 @@
     <script src="../static/script.js"></script>
     <script src="../static/gauge.min.js"></script>
 
-    
+
     <script>
 
         var telemetryData = JSON.parse('{{ telemetryData | tojson | safe}}');
@@ -187,7 +187,7 @@
             generateGradient: true,
             highDpiSupport: true,     // High resolution support
         }
-        
+
         var targetXGauge = document.getElementById('xGauge'); // your canvas element
         var accXGauge = new Gauge(targetXGauge).setOptions(opts); // create sexy gauge!
         accXGauge.maxValue = 3000; // set max gauge value
