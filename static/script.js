@@ -23,6 +23,8 @@ $(document).ready(function(){
       $('#humidity_value').html(data.humidity);
       $('#degree_value_fahr').html(data.temperature);
       $('#degree_value_cel').html(Math.ceil(data.temperature - 32.00));
+      $('#pressure_value').html(data.pressure);
+      
 
 
     })
