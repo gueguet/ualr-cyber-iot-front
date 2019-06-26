@@ -1,9 +1,6 @@
-# ualr-cyber-iot-front
-Flask app for academic purpose.
-
 # UALR Google Cloud Project - ioT
 
-This flask application is part of a bigger ioT project of the for cybersecurity lab.
+This Flask application is part of a bigger ioT project of the for cybersecurity lab.
 
 The application is deploy on a VM (Ubuntu 14.04) instance in the Google Cloud Platform 
 and display real time data (Firebase real-time database) about an ioT device of the lab. Telemetry data are published 
