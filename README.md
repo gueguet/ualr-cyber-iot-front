@@ -12,4 +12,6 @@ to the Pub/Sub section of the GCP through MQTT protocol.
 Firebase cloud functions trigger those publications and update the firebase database. Data on the client side are refresh 
 every second to represent the iot state.
 
-![](screenshot_shot.png)
+![](screen_shot.png)
+
+
